@@ -30,7 +30,9 @@ El **LoginActivity** permite al usuario iniciar sesión con un diseño moderno y
 - **Botones:**
   - El botón **Login** permite el acceso al **LoginActivity** si las credenciales son correctas.
   - El botón **Sign Up** redirige al **SignupActivity** para crear una nueva cuenta.
-    
+
+    <img width="155" alt="image" src="https://github.com/user-attachments/assets/6f9444da-9857-44a0-aec0-17c435bbf7eb" />
+
 
 
 
