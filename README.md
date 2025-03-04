@@ -28,8 +28,9 @@ El **LoginActivity** permite al usuario iniciar sesión con un diseño moderno y
   - Incluyen íconos representativos dentro de cada campo para facilitar la identificación.
   - El campo de contraseña tiene la opción `passwordToggleEnabled`, lo que permite mostrar u ocultar la contraseña con un botón.
 - **Botones:**
-  - El botón **Login** permite el acceso al **MainActivity** si las credenciales son correctas.
+  - El botón **Login** permite el acceso al **LoginActivity** si las credenciales son correctas.
   - El botón **Sign Up** redirige al **SignupActivity** para crear una nueva cuenta.
+    
 
 
 
