@@ -76,6 +76,8 @@ El **MainActivity** es la pantalla principal de la aplicación y está diseñada
 ## Funcionalidad del Menú
 - **Menú desplegable**: Ofrece opciones como **Login**, **SignUp**, **Profile**, y **Logout**.
 - Al seleccionar **Logout**, se muestra un **AlertDialog** pidiendo confirmación antes
+
+  
   ![ToolbarMensaje](https://github.com/user-attachments/assets/52100e45-1e64-42ec-b867-f3b288802181)
 
   SwipeRefreshLayout: Permite a los usuarios recargar la página al hacer un "swipe down".
