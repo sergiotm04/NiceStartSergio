@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Item principal en el Toolbar -->
+    <item
+        android:id="@+id/item4"
+        android:title="Carta"
+        android:icon="@drawable/baseline_email_24"
+        app:showAsAction="ifRoom"/>
+
+    <!-- Menú desplegable con más opciones -->
+    <item
+        android:id="@+id/puntitos"
+        android:title="Nice"
+        android:icon="@drawable/icono_usuario"
+        app:showAsAction="ifRoom">
+
+        <menu>
+
+            <item
+                android:id="@+id/item3"
+                android:title="MainActivityToolBar"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/profile"
+                android:title="Profile"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/signup"
+                android:title="Sign Up"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/login"
+                android:title="Login"
+                app:showAsAction="never"/>
+
+            <item
+                android:id="@+id/logout"
+                android:title="Logout"
+                android:icon="@drawable/icono_logout"
+                app:showAsAction="never"
+                />
+        </menu>
+
+    </item>
+</menu>
