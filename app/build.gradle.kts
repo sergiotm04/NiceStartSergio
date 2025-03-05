@@ -41,7 +41,17 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
 
+    // Lottie
     implementation("com.airbnb.android:lottie:6.1.0")
+
+    //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+
+    //Para el SwipeRefreshLayout
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
+    //Para el ReciclerView
+    implementation ("androidx.recyclerview:recyclerview:1.2.1")
+
 }

@@ -1,98 +1,196 @@
 package com.example.nicestartsergio;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.nicestartsergio.LoginActivity;
+import com.example.nicestartsergio.MainActivityToolbar;
+import com.example.nicestartsergio.ProfileActivity;
+import com.example.nicestartsergio.R;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    private TextView mycontext;
+    //para el swipe
+    private SwipeRefreshLayout swipeLayout;
+    private WebView miVisorWeb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        // Configurar Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mycontext = (TextView) findViewById(R.id.textovista);
+        registerForContextMenu(mycontext);
 
-        // Registrar un menú contextual en un TextView o Button
-        View textView = findViewById(R.id.texto);
-        registerForContextMenu(textView);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+
+        // Inicializamos el swipe y le colocamos un listener
+        swipeLayout = (SwipeRefreshLayout) findViewById(R.id.myswipe);
+        swipeLayout.setOnRefreshListener(mOnRefreshListener);
+
+        //La vista dentro es un webview con permiso para zoom
+        miVisorWeb = (WebView) findViewById(R.id.vistawebe);
+
+        WebSettings webSettings = miVisorWeb.getSettings();
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);
+        miVisorWeb.loadUrl("https://thispersondoesnotexist.com");
+
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.myMainConstraint), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
     }
 
-    // Inflar el menú de opciones en la AppBar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_appbar, menu);
-        return true;
+    //esta siendo llamado en los itemns del menu desplegable
+    public void showAlertDialogButtonClicked(MainActivity mainActivity) {
+
+        // setup the alert builder
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
+
+//        //el dialogo estandar tiene título/icono pero podemos sustituirlo por un XML a medida
+        builder.setTitle("Achtung!");
+        builder.setMessage("Where do you go?");
+        builder.setIcon(R.drawable.icono_logout);
+        builder.setCancelable(false);
+
+        // un XML a medida para el diálogo se crea otro layout
+        //  builder.setView(getLayoutInflater().inflate(R.layout.alertdialog_view, null));
+
+        // add the buttons
+        builder.setPositiveButton("Back", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // do something like...
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+                dialog.dismiss();
+
+            }
+        });
+
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
-    // Funcionalidad de las opciones de la AppBar
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
 
-        if (id == R.id.item4) {
-            final View mLayout = findViewById(R.id.main);
+
+    //funcionalidad del swipe
+    protected SwipeRefreshLayout.OnRefreshListener
+            mOnRefreshListener = new SwipeRefreshLayout.OnRefreshListener() {
+        @Override
+        public void onRefresh() {
+            //Toast toast0 = Toast.makeText(MainVista.this, "Pagina refrescada", Toast.LENGTH_LONG);
+            //toast0.show();
+
             Snackbar snackbar = Snackbar
-                    .make(mLayout, "¿Quieres deshacer esta acción?", Snackbar.LENGTH_SHORT)
-                    .setAction("Deshacer", view -> {
-                        Snackbar snackbar1 = Snackbar.make(mLayout, "Acción restaurada", Snackbar.LENGTH_SHORT);
-                        snackbar1.show();
-                    });
+                    .make(findViewById(R.id.myMainConstraint), "Pagina refrescada", Snackbar.LENGTH_SHORT);
             snackbar.show();
-        } else if (id == R.id.login) {
-            startActivity(new Intent(this, LoginActivity.class));
-        } else if (id == R.id.profile) {
-            startActivity(new Intent(this, ProfileActivity.class));
-        } else if (id == R.id.signup) {
-            startActivity(new Intent(this, SignupActivity.class));
-        } else if (id == R.id.logout) {
-            Toast.makeText(this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+
+            miVisorWeb.reload();
+            swipeLayout.setRefreshing(false);
         }
+    };
 
-        return super.onOptionsItemSelected(item);
-    }
-
-    // Crear menú contextual
+    //menu desplegable
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View view, ContextMenu.ContextMenuInfo menuInfo) {
+    public void onCreateContextMenu(ContextMenu menu, View view,ContextMenu.ContextMenuInfo menuInfo){
         getMenuInflater().inflate(R.menu.menu_context, menu);
     }
 
-    // Acciones del menú contextual
+    //funcionalidad menu_context
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.item1) {
-            Toast.makeText(this, "Elemento copiado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Item copied", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.item2) {
-            Toast.makeText(this, "Descargando elemento...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Dowloading Item...", Toast.LENGTH_SHORT).show();
             return true;
         }
 
-        return super.onContextItemSelected(item);
+
+        return false;
     }
+
+    //declara el menu desplegable
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_appbar, menu);
+        return true;
+    }
+
+    //funcionalidad menu_appbar
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if(id == R.id.item4){
+            // Toast.makeText(this, "Infecting", Toast.LENGTH_SHORT).show();
+
+            final ConstraintLayout mLayout = findViewById(R.id.myMainConstraint);
+
+            Snackbar snackbar = Snackbar
+                    .make(mLayout, "Enviar mensaje", Snackbar.LENGTH_SHORT)
+                    .setAction("Undo", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Snackbar snackbar1 = Snackbar.make(mLayout, "Mensaje cancelado", Snackbar.LENGTH_SHORT);
+                            snackbar1.show();
+                        }
+                    });
+
+            snackbar.show(); //linea importante para que funcione
+
+        }else if(id == R.id.login){
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }else if(id == R.id.profile){
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+        }else if(id == R.id.signup) {
+            Intent intent = new Intent(this, SignupActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.logout) {
+            showAlertDialogButtonClicked(MainActivity.this); //llamada al dialogo alert
+        }else if(id == R.id.item3){
+            Intent intent = new Intent(this, MainActivityToolbar.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+
 }

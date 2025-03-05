@@ -15,11 +15,17 @@
         android:theme="@style/Theme.NiceStartSergio"
         tools:targetApi="31">
         <activity
+            android:name="fragments.FragmentSettings"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignupActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false" /> <!-- El Splash debe ejecutarse primero -->
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -28,7 +34,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- MainActivity ya NO debe tener intent-filter -->
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />
