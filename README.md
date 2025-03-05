@@ -41,12 +41,12 @@ El **SignupActivity** permite a los usuarios registrarse en la aplicación propo
 Al acceder a esta pantalla, el usuario puede ingresar sus credenciales en un diseño moderno y atractivo. La interfaz sigue el estilo de **LoginActivity**, con un fondo en degradado y una imagen superpuesta para mejorar la estética.
 
 ### Diseño
-- **🔹 Fondo:** Gradiente con una imagen superpuesta que mejora la apariencia visual.
-- **🔹 Campos de texto:**
+- **Fondo:** Gradiente con una imagen superpuesta que mejora la apariencia visual.
+- **Campos de texto:**
   - Incluyen íconos representativos dentro de cada campo para facilitar la identificación.
   - Se agregan los campos **usuario, contraseña y correo electrónico**.
   - El campo de contraseña tiene la opción `passwordToggleEnabled`, que permite mostrar u ocultar la contraseña con un botón.
-- **🔹 Botones:**
+- **Botones:**
   - El botón **Register** guarda la información del usuario y lo redirige a **MainActivity**.
   - El botón **Cancel** vuelve a **LoginActivity**.
  
