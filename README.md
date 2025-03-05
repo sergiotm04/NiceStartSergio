@@ -55,6 +55,34 @@ Al acceder a esta pantalla, el usuario puede ingresar sus credenciales en un dis
     <img width="133" alt="image" src="https://github.com/user-attachments/assets/d9582686-289c-4241-8013-f25c92bebb6e" />
   Nota: En el editor de diseño de Android Studio, los íconos pueden aparecer alineados a la izquierda, pero al ejecutar la aplicación se muestran correctamente alineados a la derecha.
 
+# MainActivity
+
+El **MainActivity** es la pantalla principal de la aplicación y está diseñada para ofrecer una experiencia interactiva al usuario, con diversas funcionalidades como la barra de herramientas (Toolbar), un menú desplegable, el **SwipeRefreshLayout** para recargar contenido, y un **Snackbar** para mostrar mensajes.
+
+## Características del Toolbar
+- **Nombre de la aplicación**: Se muestra en el lado izquierdo de la barra de herramientas.
+- **Íconos de acción**:
+  - **Icono de mensaje**: Al hacer clic en el ícono de mensaje, se muestra un **Snackbar** con el texto "Mensaje enviado". Al pulsar el botón **Undo**, la acción se cancela.
+  - **Menú desplegable**: Este menú contiene opciones de navegación:
+    - **Perfil**: Redirige a la pantalla **ProfileActivity**.
+    - **Login**: Redirige a la pantalla **LoginActivity**.
+    - **SignUp**: Redirige a la pantalla **SignupActivity**.
+    - **Logout**: Muestra un **AlertDialog** para confirmar la acción y realizar el logout.
+
+## Características del SwipeRefreshLayout
+- Se utiliza para recargar el contenido de la pantalla. El usuario puede deslizar hacia abajo para actualizar la página.
+- Al realizar un gesto de "swipe to refresh", se muestra un **Snackbar** confirmando que la página se ha recargado correctamente.
+
+## Funcionalidad del Menú
+- **Menú desplegable**: Ofrece opciones como **Login**, **SignUp**, **Profile**, y **Logout**.
+- Al seleccionar **Logout**, se muestra un **AlertDialog** pidiendo confirmación antes
+  ![ToolbarMensaje](https://github.com/user-attachments/assets/52100e45-1e64-42ec-b867-f3b288802181)
+
+  SwipeRefreshLayout: Permite a los usuarios recargar la página al hacer un "swipe down".
+  Snackbar: Se usa para mostrar mensajes temporales en la pantalla, como la confirmación de acciones o errores.
+
+
+
 
 
 
