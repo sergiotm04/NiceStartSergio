@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentInicio">
+
+    <fragment
+        android:id="@+id/fragmentInicio"
+        android:name="fragments.FragmentInicio"
+        android:label="Fragment Inicio"
+        tools:layout="@layout/activity_fragment_inicio" />
+
+    <fragment
+        android:id="@+id/fragmentSettings"
+        android:name="fragments.FragmentSettings"
+        android:label="Fragment Settings"
+        tools:layout="@layout/activity_fragment_settings" />
+
+    <!-- Agrega más fragmentos según sea necesario -->
+
+</navigation>

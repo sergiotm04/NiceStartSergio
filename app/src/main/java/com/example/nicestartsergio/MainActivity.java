@@ -16,16 +16,11 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.nicestartsergio.LoginActivity;
-import com.example.nicestartsergio.MainActivityToolbar;
-import com.example.nicestartsergio.ProfileActivity;
-import com.example.nicestartsergio.R;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -155,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.item4){
-            // Toast.makeText(this, "Infecting", Toast.LENGTH_SHORT).show();
+
 
             final ConstraintLayout mLayout = findViewById(R.id.myMainConstraint);
 
@@ -189,6 +184,8 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
 
