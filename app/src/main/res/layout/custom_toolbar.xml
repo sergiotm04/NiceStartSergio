@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/blue">
+
+    <!-- Imagen para el botón de retroceso -->
+    <ImageView
+        android:id="@+id/arrowback"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/icono_flecha"
+        android:contentDescription="Back"
+        android:layout_marginStart="16dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/white"/>
+
+    <!-- Título de la barra -->
+    <TextView
+        android:id="@+id/title_toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Nice Start"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+
+    <!-- Animación -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:onClick="goProfile"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            android:contentDescription="Animación de coche"
+            app:lottie_rawRes="@raw/animacion_coche" />
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>
