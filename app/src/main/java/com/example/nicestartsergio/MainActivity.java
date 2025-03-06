@@ -178,7 +178,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.logout) {
             showAlertDialogButtonClicked(MainActivity.this); //llamada al dialogo alert
         }else if(id == R.id.item3){
-            Intent intent = new Intent(this, MainActivityToolbar.class);
+            Intent intent = new Intent(this, MainToolBar.class);
             startActivity(intent);
         }
 

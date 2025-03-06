@@ -23,12 +23,7 @@
         <activity
             android:name=".MainBar"
             android:exported="false" />
-        <activity
-            android:name="fragments.FragmentFavoritos"
-            android:exported="false" />
-        <activity
-            android:name="fragments.FragmentSettings"
-            android:exported="false" />
+
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />

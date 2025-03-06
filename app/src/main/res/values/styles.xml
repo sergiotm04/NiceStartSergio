@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Estilo para el botón de login -->
     <style name="Button1Style">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">60dp</item>
@@ -9,6 +10,7 @@
         <item name="backgroundTint">@color/white</item>
     </style>
 
+    <!-- Estilo para el botón de signup -->
     <style name="Button2Style" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">60dp</item>
@@ -17,12 +19,20 @@
         <item name="strokeColor">@android:color/white</item>
     </style>
 
+    <!-- Estilo para el tema -->
     <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Colores para el modo claro -->
         <item name="colorPrimary">@color/white</item>
         <item name="colorOnPrimary">@color/light_blue</item>
+        <item name="colorSurface">@color/blue</item>
         <item name="colorOnSurface">@color/red</item>
+
+        <!-- Estilos del modo oscuro -->
+        <item name="colorPrimaryDark">@color/black</item>
+
     </style>
 
+    <!-- Estilo para el botón de volver a la pantalla principal -->
     <style name="buttonbackmain">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -31,4 +41,5 @@
         <item name="cornerRadius">10dp</item>
         <item name="backgroundTint">@color/blue</item>
     </style>
+
 </resources>
