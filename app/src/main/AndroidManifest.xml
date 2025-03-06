@@ -15,6 +15,7 @@
         android:theme="@style/Theme.NiceStartSergio"
         tools:targetApi="31">
         <activity
+
             android:name=".MainButtonBar"
             android:exported="false" />
         <activity
